@@ -1,35 +1,54 @@
-<h1>Register</h1>
+<html>
 
-<div>
-    <label for="username">
-        Username
-    </label>
-    <input type="text"
-           placeholder="example"
-           id ="username"/>
-</div>
+    <head>
+        <title>Registration Page</title>
+    </head>
 
-<div>
-    <label for="password">
-        Password
-    </label>
-    <input type="password"
-           placeholder="*****"
-           id="password"/>
-</div>
+    <body>
+        <h1>Register</h1>
 
-<div>
-    <label for="password2">
-        Confirm Password
-    </label>
-    <input type="password"
-           placeholder="*****"
-           id="password2"/>
-</div>
+        <div>
+            <label for="username">
+                Username
+            </label>
+            <input type="text"
+                   placeholder="example"
+                   id ="username"/>
+        </div>
 
-<button>
-    Register
-</button>
-<a href="login.template.client.html">
-    Login
-</a>
+        <div>
+            <label for="password">
+                Password
+            </label>
+            <input type="password"
+                   placeholder="*****"
+                   id="password"/>
+        </div>
+
+        <div>
+            <label for="password2">
+                Confirm Password
+            </label>
+            <input type="password"
+                   placeholder="*****"
+                   id="password2"/>
+        </div>
+
+        <button id="registerBtn">
+            Register
+        </button>
+        <a href="login.template.client.html">
+            Login
+        </a>
+
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+
+        <script src="register.controller.client.js"></script>
+
+    </body>
+
+</html>
+
