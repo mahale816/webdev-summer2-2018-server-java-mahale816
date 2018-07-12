@@ -1,17 +1,65 @@
-<h1>Profile</h1>
+<html>
+	<head>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet">
+		<title>Profile Page</title>
+		<link href="../../css/styles.css"
+              rel="stylesheet"/>
+        <script
+		        src="https://code.jquery.com/jquery-3.3.1.min.js"
+		        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		        crossorigin="anonymous"></script>
+		<script src="../../services/user.service.client.js"></script>
+		<script src="profile.controller.client.js"></script>
+	</head>
+	
+	<body>
+		<h1>Profile</h1>
 
-<input placeholder="username" id="username">
-<br/>
-<input id="firstName"/>
-<br/>
-<input id="lastName"/>
-<br/>
-<button id="updateBtn">
-    Update
-</button>
-<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+		<div>
+			<label>Username</label>
+			<input placeholder="username" 
+				   id="username">
+		</div>
+		<div>
+			<label>First Name</label>
+			<input placeholder="Alice" 
+				   id="firstName"/>
+		</div>
+		<div>
+			<label>Last Name</label>
+			<input placeholder="Wonderland" 
+			       id="lastName"/>
+		</div>
+		<div>
+			<label>Role</label>
+			<select id="role">
+		       	<option value="FACULTY">
+                    Faculty
+                </option>
+                <option value="STUDENT">
+                    Student
+                </option>
+            </select>
+		</div>
+		<div>
+		    <label>Date of Birth</label>
+		    <input type="date" 
+		           id="dateofbirth">
+		</div>
+		<div>
+			<button id="updateBtn">
+		    	Update
+			</button>
+		</div>
+		<div>
+			<!--<a href="../../index.html">-->
+				<button id="logoutBtn">
+					Logout
+				</button>
+		<!--</a>-->
+		</div>
+		
+	</body>
 
-<script src="profile.controller.client.js"></script>
+</html>

@@ -14,13 +14,13 @@
   
   function login() {
     var user = {
-      'username': $username.val(),
+      "username": $username.val(),
       "password": $password.val()
     };
     fetch('/login', {
       method: 'post',
       body: JSON.stringify(user),
-      credentials: 'include',
+      'credentials': 'include',
       headers: {
         'content-type': 'application/json'
       }

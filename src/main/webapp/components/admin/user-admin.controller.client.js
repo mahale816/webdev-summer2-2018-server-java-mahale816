@@ -3,11 +3,31 @@
   var userServiceClient = new UserServiceClient();
 
   function init() {
+	$('#createBtn').click(createUser);
     userServiceClient
       .findAllUsers()
       .then(renderUsers);
   }
   init();
+  
+  function createUser() {
+      console.log('createUser');
+      var username = $('#username').val();
+      var password = $('#password').val();
+      var firstName = $('#firstName').val();
+      var lastName = $('#lastName').val();
+
+      var user = {
+          username: username,
+          password: password,
+          firstName: firstName,
+          lastName: lastName
+      };
+      
+      userServiceClient
+      .createUser(user)
+      .then(findAllUsers);     
+  }
 
   function renderUsers(users) {
     console.log(users);
@@ -66,4 +86,5 @@
           .then(renderUsers);
       });
   }
+  
 })();

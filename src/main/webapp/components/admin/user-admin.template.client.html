@@ -20,24 +20,24 @@
             <th>&nbsp;</th>
         </tr>
         <tr>
-            <th><input/></th>
-            <th><input/></th>
-            <th><input/></th>
-            <th><input/></th>
-            <th><input/></th>
-            <th>
-                <select>
+            <th><input id="username" class="form-control" placeholder="username"/></th>
+            <th><input id="password" class="form-control" placeholder="password"/></th>
+            <th><input id="firstName" class="form-control" placeholder="First Name"/></th>
+            <th><input id="lastName" class="form-control" placeholder="Last Name"/></th>
+            <th><input id="email" class="form-control" placeholder="Email"/></th>
+            <th><select>
                     <option value="FACULTY">
-                        Faculty (adfsk sdfg sdfg sdfg)
+                        Faculty
                     </option>
                     <option value="STUDENT">
                         Student
                     </option>
                 </select>
+                
             </th>
             <th>
-                <button>Update</button>
-                <button>Create</button>
+                <button id="updateBtn">Update</button>
+                <button id="createBtn">Create</button>
             </th>
         </tr>
     </thead>
@@ -50,8 +50,8 @@
             <td>alice@wonderland.com</td>
             <td>Faculty</td>
             <td>
-                <button>Delete</button>
-                <button>Edit</button>
+                <button id="deleteBtn">Delete</button>
+                <button id="editBtn">Edit</button>
             </td>
         </tr>
     </tbody>
@@ -61,8 +61,7 @@
 </table>
     </div>
 
-<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 <script src="../../services/user.service.client.js"></script>
