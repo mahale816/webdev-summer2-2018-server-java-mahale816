@@ -1,7 +1,9 @@
 (function () {
 
-  var $username, $firstName, $lastName,
-    $updateBtn;
+  var userServiceClient = new UserServiceClient();
+
+  var $username, $firstName, $lastName, $role, $dateofbirth,
+    $updateBtn, $logoutBtn;
   var currentUser = null;
 
   function init() {
@@ -9,16 +11,30 @@
     $username = $("#username");
     $firstName = $("#firstName");
     $lastName = $("#lastName");
+    //$role = $('#role');
+    //$dateofbirth = $('#dateofbirth');
     $updateBtn = $("#updateBtn");
+    $logoutBtn = $("#logoutBtn");
 
     $updateBtn.click(updateUser);
+    $logoutBtn.click(logoutUser);
 
-    // findUserById(7)
-    //   .then(renderUser)
     profile()
       .then(renderUser);
   }
+
   init();
+
+  function logoutUser(user){
+      user = currentUser;
+      userServiceClient
+          .logoutUser(user)
+          .then(navigateToIndex);
+  }
+
+  function navigateToIndex() {
+      window.location.href = "../login/login.template.client.html";
+  }
   
   function updateUser() {
     var user = {
@@ -40,7 +56,9 @@
     currentUser = user;
     $username.val(user.username);
     $firstName.val(user.firstName);
-    $lastName.val(user.lastName);
+    $lastName.val(user.lastname);
+    //$role.val(user.role);
+    //$dateofbirth.val(user.dateobirth);
   }
 
   function profile() {
@@ -57,9 +75,5 @@
       .then(function (response) {
         return response.json();
       });
-  }
-  
-  function handleResponse() {
-    
   }
 })();

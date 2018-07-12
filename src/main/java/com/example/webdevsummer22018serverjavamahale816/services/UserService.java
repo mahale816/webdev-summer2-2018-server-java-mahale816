@@ -47,6 +47,11 @@ public class UserService {
 		session.setAttribute("currentUser", user);
 		return user;
 	}
+	
+	@GetMapping("/checkLogin")
+	public User checkLogin(HttpSession session) {
+		return (User) session.getAttribute("currentUser");
+	}
 
 	
 	@PutMapping("/api/user/{userId}")
@@ -58,6 +63,8 @@ public class UserService {
 			User user = optional.get();
 			user.setFirstName(newUser.getFirstName());
 			user.setLastname(newUser.getLastname());
+			user.setRole(newUser.getRole());
+			user.setDateofbirth(newUser.getDateofbirth());
 			return userRepository.save(user);
 		}
 		return null;
@@ -69,6 +76,11 @@ public class UserService {
 		return userRepository.findById(id);
 	}
 	
+	@PostMapping("/api/user")
+	public User create(@RequestBody User newUser) {
+		return userRepository.save(newUser);
+	}
+	
 	@DeleteMapping("/api/user/{userId}")
 	public void deleteUser(@PathVariable("userId") int id) {
 		userRepository.deleteById(id);
@@ -77,6 +89,12 @@ public class UserService {
 	@GetMapping("/api/user")
 	public List<User> findAllUsers() {
 		return (List<User>) userRepository.findAll();
+	}
+	
+	@PostMapping("/api/logout")
+	public void logout
+	(HttpSession session) {
+		session.invalidate();
 	}
 	
 }
