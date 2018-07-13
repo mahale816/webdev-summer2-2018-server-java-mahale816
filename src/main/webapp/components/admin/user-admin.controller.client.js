@@ -1,14 +1,49 @@
 (function () {
 
   var userServiceClient = new UserServiceClient();
+  var currentUser = null;
 
   function init() {
-	$('#createBtn').click(createUser);
-    userServiceClient
-      .findAllUsers()
-      .then(renderUsers);
+        $('#createBtn').click(createUser);
+        $('#updateBtn').click(function () {
+            updateUser();
+            userServiceClient
+                .findAllUsers()
+                .then(renderUsers);
+        });
+        userServiceClient
+        .findAllUsers()
+        .then(renderUsers);
   }
   init();
+
+  function updateUser() {
+      var username = $("#username").val();
+      var password = $("#password").val();
+      var firstName = $('#firstName').val();
+      var lastName = $('#lastName').val();
+      var email = $('#email').val();
+      var phoneNumber = $('#phoneNumber').val();
+      var role = $('#role').val();
+      var dateofbirth = $('#dateofbirth').val();
+
+      var user = {
+          username: username,
+          password: password,
+          firstName: firstName,
+          lastname: lastName,
+          email: email,
+          phoneNumber: phoneNumber,
+          role: role,
+          dateofbirth: dateofbirth
+      };
+      userServiceClient
+          .updateUser(currentUser.id, user);
+      // userServiceClient
+      //     .findAllUsers()
+      //     .then(renderUsers);
+
+  }
   
   function createUser() {
       console.log('createUser');
@@ -16,17 +51,29 @@
       var password = $('#password').val();
       var firstName = $('#firstName').val();
       var lastName = $('#lastName').val();
+      var email = $('#email').val();
+      var phoneNumber = $('#phoneNumber').val();
+      var role = $('#role').val();
+      var dateofbirth = $('#dateofbirth').val();
 
       var user = {
           username: username,
           password: password,
           firstName: firstName,
-          lastName: lastName
+          lastName: lastName,
+          email: email,
+          phoneNumber: phoneNumber,
+          role: role,
+          dateofbirth: dateofbirth
       };
       
       userServiceClient
       .createUser(user)
-      .then(findAllUsers);     
+      .then(function () {
+          userServiceClient
+              .findAllUsers()
+              .then(renderUsers);
+      });
   }
 
   function renderUsers(users) {
@@ -51,19 +98,35 @@
       tr.append(td);
 
       td = $('<td>');
-      td.append(user.lastName);
+      td.append(user.lastname);
       tr.append(td);
 
       td = $('<td>');
-      td.append('hello@world.com');
+      td.append(user.phoneNumber);
       tr.append(td);
 
       td = $('<td>');
-      td.append('Student');
+      td.append(user.email);
       tr.append(td);
 
       td = $('<td>');
-      var deleteBtn = $('<button>DELETE</button>');
+      td.append(user.role);
+      tr.append(td);
+
+      td = $('<td>');
+      td.append(user.dateofbirth);
+      tr.append(td);
+
+    td = $('<td>');
+    var editBtn = $('<button class="btn btn-primary">EDIT</button>');
+    editBtn.click(renderUser);
+    editBtn.attr('id', user.id);
+    td.append(editBtn);
+    // td.append(deleteBtn);
+    tr.append(td);
+
+      td = $('<td>');
+      var deleteBtn = $('<button class="btn btn-danger">DELETE</button>');
       deleteBtn.click(deleteUser);
       deleteBtn.attr('id', user.id);
       td.append(deleteBtn);
@@ -71,6 +134,27 @@
 
       tr.appendTo(tbody);
     }
+  }
+
+  function renderUser(event) {
+      console.log(event);
+      var $button = $(event.currentTarget);
+      var id = $button.attr('id');
+
+      userServiceClient
+          .findUserById(id)
+          .then(function (user) {
+              $('#username').val(user.username);
+              $('#password').val(user.password);
+              $('#firstName').val(user.firstName);
+              $('#lastName').val(user.lastname);
+              $('#email').val(user.email);
+              $('#phoneNumber').val(user.phoneNumber);
+              $('#role').val(user.role);
+              $('#dateofbirth').val(user.dateofbirth);
+              currentUser = user;
+          })
+
   }
 
   function deleteUser(event) {

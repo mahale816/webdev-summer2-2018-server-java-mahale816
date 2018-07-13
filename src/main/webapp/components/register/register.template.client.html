@@ -7,44 +7,46 @@
         <title>Registration Page</title>
     </head>
     <body>
-        <h1>Register</h1>
+        <div class="container-fluid">
+            <h1>Register</h1>
 
-        <div>
-            <label for="username">
-                Username
-            </label>
-            <input type="text"
-                   class="form-control wbdv"
-                   placeholder="alice"
-                   id="username"/>
-        </div>
+            <div>
+                <label for="username">
+                    Username
+                </label>
+                <input type="text"
+                       class="form-control wbdv"
+                       placeholder="alice"
+                       id="username"/>
+            </div>
 
-        <div>
-            <label for="password">
-                Password
-            </label>
-            <input type="password"
-                   class="form-control wbdv"
-                   placeholder="1234qwerasdf"
-                   id="password"/>
-        </div>
+            <div>
+                <label for="password">
+                    Password
+                </label>
+                <input type="password"
+                       class="form-control wbdv"
+                       placeholder="1234qwerasdf"
+                       id="password"/>
+            </div>
 
-        <div>
-            <label for="password2">
-                Validate Password
-            </label>
-            <input type="password"
-                   class="form-control wbdv"
-                   placeholder="1234qwerasdf"
-                   id="password2"/>
+            <div>
+                <label for="password2">
+                    Validate Password
+                </label>
+                <input type="password"
+                       class="form-control wbdv"
+                       placeholder="1234qwerasdf"
+                       id="password2"/>
+            </div>
+            <button class="btn btn-success"
+                    id="registerBtn">
+                Register
+            </button>
+            <a href="../login/login.template.client.html">
+                Login
+            </a>
         </div>
-        <button class="btn btn-success"
-                id="registerBtn">
-            Register
-        </button>
-        <a href="../login/login.template.client.html">
-            Login
-        </a>
 
         <script
                 src="https://code.jquery.com/jquery-3.3.1.min.js"

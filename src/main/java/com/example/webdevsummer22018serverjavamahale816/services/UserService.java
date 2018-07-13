@@ -65,6 +65,8 @@ public class UserService {
 			user.setLastname(newUser.getLastname());
 			user.setRole(newUser.getRole());
 			user.setDateofbirth(newUser.getDateofbirth());
+			user.setPhoneNumber(newUser.getPhoneNumber());
+			user.setEmail(newUser.getEmail());
 			return userRepository.save(user);
 		}
 		return null;
@@ -77,8 +79,8 @@ public class UserService {
 	}
 	
 	@PostMapping("/api/user")
-	public User create(@RequestBody User newUser) {
-		return userRepository.save(newUser);
+	public void create(@RequestBody User newUser) {
+		userRepository.save(newUser);
 	}
 	
 	@DeleteMapping("/api/user/{userId}")
@@ -92,8 +94,7 @@ public class UserService {
 	}
 	
 	@PostMapping("/api/logout")
-	public void logout
-	(HttpSession session) {
+	public void logout(HttpSession session) {
 		session.invalidate();
 	}
 	

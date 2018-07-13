@@ -1,69 +1,88 @@
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-      rel="stylesheet">
-<link href="../../css/styles.css"
-      rel="stylesheet"/>
+<html>
+    <head>
+        <title>User Admin</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+              rel="stylesheet">
+        <link href="../../css/styles.css"
+              rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+        <h1>User Admin</h1>
 
-<div class="container-fluid">
-<h1>User Admin</h1>
+            <div class="table-responsive">
 
-    <div class="table-responsive">
+            <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Date of Birth</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th><input id="username" class="form-control" placeholder="username"/></th>
+                    <th><input id="password" class="form-control" placeholder="password"/></th>
+                    <th><input id="firstName" class="form-control" placeholder="First Name"/></th>
+                    <th><input id="lastName" class="form-control" placeholder="Last Name"/></th>
+                    <th><input id="phoneNumber" class="form-control" placeholder="+1234567890"/></th>
+                    <th><input id="email" class="form-control" placeholder="Email"/></th>
+                    <th><select id="role">
+                            <option value="FACULTY">
+                                Faculty
+                            </option>
+                            <option value="STUDENT">
+                                Student
+                            </option>
+                        </select>
 
-    <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Username</th>
-            <th>Password</th>
-            <th>First</th>
-            <th>Last</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>&nbsp;</th>
-        </tr>
-        <tr>
-            <th><input id="username" class="form-control" placeholder="username"/></th>
-            <th><input id="password" class="form-control" placeholder="password"/></th>
-            <th><input id="firstName" class="form-control" placeholder="First Name"/></th>
-            <th><input id="lastName" class="form-control" placeholder="Last Name"/></th>
-            <th><input id="email" class="form-control" placeholder="Email"/></th>
-            <th><select>
-                    <option value="FACULTY">
-                        Faculty
-                    </option>
-                    <option value="STUDENT">
-                        Student
-                    </option>
-                </select>
-                
-            </th>
-            <th>
-                <button id="updateBtn">Update</button>
-                <button id="createBtn">Create</button>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>alice</td>
-            <td>****</td>
-            <td>Alice</td>
-            <td>Wonderland</td>
-            <td>alice@wonderland.com</td>
-            <td>Faculty</td>
-            <td>
-                <button id="deleteBtn">Delete</button>
-                <button id="editBtn">Edit</button>
-            </td>
-        </tr>
-    </tbody>
-    <tfoot>
+                    </th>
+                    <th>
+                        <input type="date"
+                               id="dateofbirth">
+                    </th>
+                    <th>
+                        <button class="btn btn-primary"
+                                id="createBtn">Create</button>
+                    </th>
+                    <th>
+                        <button class="btn btn-secondary"
+                                id="updateBtn">Update</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>alice</td>
+                    <td>****</td>
+                    <td>Alice</td>
+                    <td>Wonderland</td>
+                    <td>+1234567890</td>
+                    <td>alice@wonderland.com</td>
+                    <td>Faculty</td>
+                    <td>dateofbirth</td>
+                    <td>
+                        <button id="deleteBtn">Delete</button>
+                        <button id="editBtn">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
 
-    </tfoot>
-</table>
-    </div>
+            </tfoot>
+        </table>
+            </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-<script src="../../services/user.service.client.js"></script>
-<script src="user-admin.controller.client.js"></script>
-</div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+        <script src="../../services/user.service.client.js"></script>
+        <script src="user-admin.controller.client.js"></script>
+        </div>
+    </body>
+</html>

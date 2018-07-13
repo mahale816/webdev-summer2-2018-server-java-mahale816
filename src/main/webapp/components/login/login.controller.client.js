@@ -7,7 +7,6 @@
     $username = $('#username');
     $password = $('#password');
     $loginBtn = $('#loginBtn');
-    
     $loginBtn.click(login);
   }
   init();

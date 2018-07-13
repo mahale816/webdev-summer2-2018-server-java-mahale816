@@ -18,6 +18,8 @@ public class User {
 	private String lastName;
 	private String role;
 	private String dateofbirth;
+	private String email;
+	private String phoneNumber;
 	
 	public String getUsername() {
 		return username;
@@ -60,6 +62,18 @@ public class User {
 	}
 	public void setDateofbirth(String dateofbirth) {
 		this.dateofbirth = dateofbirth;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 }
