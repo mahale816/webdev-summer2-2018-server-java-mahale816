@@ -2,8 +2,16 @@
 
   var userServiceClient = new UserServiceClient();
 
-  var $username, $firstName, $lastName, $role, $dateofbirth,
-    $updateBtn, $logoutBtn;
+  var $username,
+      $firstName,
+      $lastName,
+      $role,
+      $dateofbirth,
+      $email,
+      $phoneNumber,
+      $updateBtn,
+      $logoutBtn;
+
   var currentUser = null;
 
   function init() {
@@ -11,8 +19,10 @@
     $username = $("#username");
     $firstName = $("#firstName");
     $lastName = $("#lastName");
-    //$role = $('#role');
-    //$dateofbirth = $('#dateofbirth');
+    $role = $('#role');
+    $email = $('#email');
+    $phoneNumber = $('#phoneNumber');
+    $dateofbirth = $('#dateofbirth');
     $updateBtn = $("#updateBtn");
     $logoutBtn = $("#logoutBtn");
 
@@ -25,31 +35,29 @@
 
   init();
 
-  function logoutUser(user){
-      user = currentUser;
+  function logoutUser(){
+      var user = currentUser;
       userServiceClient
           .logoutUser(user)
-          .then(navigateToIndex);
+            .then(navigateToLogin);
   }
 
-  function navigateToIndex() {
-      window.location.href = "../login/login.template.client.html";
+  function navigateToLogin() {
+    window.location.href = "../login/login.template.client.html"
   }
-  
+
   function updateUser() {
     var user = {
-      firstName: $firstName.val(),
-      lastName: $lastName.val()
+        firstName: $firstName.val(),
+        lastname: $lastName.val(),
+        role: $role.val(),
+        email: $email.val(),
+        phoneNumber: $phoneNumber.val(),
+        dateofbirth: $dateofbirth.val()
     };
 
-    fetch("/api/user/" + currentUser.id, {
-      method: 'put',
-      body: JSON.stringify(user),
-      'credentials': 'include',
-      headers: {
-        'content-type': 'application/json'
-      }
-    });
+    userServiceClient
+        .updateUser(currentUser.id, user);
   }
 
   function renderUser(user) {
@@ -57,8 +65,10 @@
     $username.val(user.username);
     $firstName.val(user.firstName);
     $lastName.val(user.lastname);
-    //$role.val(user.role);
-    //$dateofbirth.val(user.dateobirth);
+    $email.val(user.email);
+    $phoneNumber.val(user.phoneNumber);
+    $role.val(user.role);
+    $dateofbirth.val(user.dateofbirth);
   }
 
   function profile() {
@@ -68,12 +78,5 @@
     .then(function (response) {
       return response.json();
     });
-  }
-
-  function findUserById(userId) {
-    return fetch('/api/user/' + userId)
-      .then(function (response) {
-        return response.json();
-      });
   }
 })();
