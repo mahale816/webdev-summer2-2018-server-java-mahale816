@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>User Admin</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
               rel="stylesheet">
@@ -24,20 +26,36 @@
                     <th>Role</th>
                     <th>Date of Birth</th>
                     <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
                 <tr>
-                    <th><input id="username" class="form-control" placeholder="username"/></th>
-                    <th><input id="password" class="form-control" placeholder="password"/></th>
-                    <th><input id="firstName" class="form-control" placeholder="First Name"/></th>
-                    <th><input id="lastName" class="form-control" placeholder="Last Name"/></th>
-                    <th><input id="phoneNumber" class="form-control" placeholder="+1234567890"/></th>
-                    <th><input id="email" class="form-control" placeholder="Email"/></th>
+                    <th><input id="username"
+                               class="form-control"
+                               placeholder="username"/></th>
+                    <th><input id="password"
+                               class="form-control"
+                               placeholder="password"/></th>
+                    <th><input id="firstName"
+                               class="form-control"
+                               placeholder="First Name"/></th>
+                    <th><input id="lastName"
+                               class="form-control"
+                               placeholder="Last Name"/></th>
+                    <th><input id="phoneNumber"
+                               class="form-control"
+                               placeholder="+1234567890"/></th>
+                    <th><input id="email"
+                               class="form-control"
+                               placeholder="Email"/></th>
                     <th><select id="role">
                             <option value="FACULTY">
                                 Faculty
                             </option>
                             <option value="STUDENT">
                                 Student
+                            </option>
+                            <option value="ADMIN">
+                                Admin
                             </option>
                         </select>
 
@@ -67,8 +85,10 @@
                     <td>Faculty</td>
                     <td>dateofbirth</td>
                     <td>
-                        <button id="deleteBtn">Delete</button>
-                        <button id="editBtn">Edit</button>
+                        <button id="deleteBtn">EDIT</button>
+                    </td>
+                    <td>
+                        <button id="editBtn">DELETE</button>
                     </td>
                 </tr>
             </tbody>

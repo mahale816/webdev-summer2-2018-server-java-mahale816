@@ -43,7 +43,7 @@
   }
 
   function navigateToLogin() {
-    window.location.href = "../login/login.template.client.html"
+    window.location.href = "../login/login.template.client.html";
   }
 
   function updateUser() {
@@ -57,7 +57,10 @@
     };
 
     userServiceClient
-        .updateUser(currentUser.id, user);
+        .updateUser(currentUser.id, user)
+        .then(function () {
+          alert('profile has been updated');
+        });
   }
 
   function renderUser(user) {

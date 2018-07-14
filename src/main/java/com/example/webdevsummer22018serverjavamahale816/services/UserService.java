@@ -93,7 +93,7 @@ public class UserService {
 		return (List<User>) userRepository.findAll();
 	}
 	
-	@PostMapping("/api/logout")
+	@GetMapping("/api/logout")
 	public void logout(HttpSession session) {
 		session.invalidate();
 	}
