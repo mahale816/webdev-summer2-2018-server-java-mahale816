@@ -15,7 +15,7 @@ function UserServiceClient() {
     }
 
     function updateUser(id, newUser) {
-        fetch("/api/user/" + id, {
+        return fetch("/api/user/" + id, {
             method: 'put',
             body: JSON.stringify(newUser),
             'credentials': 'include',
@@ -45,14 +45,9 @@ function UserServiceClient() {
         });
     }
 
-    function logoutUser(user) {
-            return fetch("api/logout", {
-                method: 'post',
-                body: JSON.stringify(user),
-                'credentials': 'include',
-                headers: {
-                    'content-type': 'application/json'
-                }
+    function logoutUser() {
+            return fetch("/api/logout", {
+                'credentials': 'include'
             });
     }
 

@@ -17,7 +17,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String role;
-	private String dateofbirth;
+	private Date dateofbirth;
 	private String email;
 	private String phoneNumber;
 	
@@ -57,10 +57,10 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String getDateofbirth() {
+	public Date getDateofbirth() {
 		return dateofbirth;
 	}
-	public void setDateofbirth(String dateofbirth) {
+	public void setDateofbirth(Date dateofbirth) {
 		this.dateofbirth = dateofbirth;
 	}
 	public String getEmail() {

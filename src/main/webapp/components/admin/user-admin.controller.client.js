@@ -5,12 +5,7 @@
 
   function init() {
         $('#createBtn').click(createUser);
-        $('#updateBtn').click(function () {
-            updateUser();
-            userServiceClient
-                .findAllUsers()
-                .then(renderUsers);
-        });
+        $('#updateBtn').click(updateUser);
         userServiceClient
         .findAllUsers()
         .then(renderUsers);
@@ -38,11 +33,12 @@
           dateofbirth: dateofbirth
       };
       userServiceClient
-          .updateUser(currentUser.id, user);
-      // userServiceClient
-      //     .findAllUsers()
-      //     .then(renderUsers);
-
+          .updateUser(currentUser.id, user)
+          .then(function () {
+              userServiceClient
+                  .findAllUsers()
+                  .then(renderUsers);
+          });
   }
   
   function createUser() {
@@ -60,7 +56,7 @@
           username: username,
           password: password,
           firstName: firstName,
-          lastName: lastName,
+          lastname: lastName,
           email: email,
           phoneNumber: phoneNumber,
           role: role,
