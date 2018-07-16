@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<title>Profile Page</title>
+
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<h1>Profile</h1>
+
+			<div>
+				<label>Username</label>
+				<input type="text"
+					   class="form-control wbdv"
+					   placeholder="username"
+					   id="username" />
+			</div>
+			<div>
+				<label>First Name</label>
+				<input type="text"
+					   class="form-control wbdv"
+					   placeholder="Alice"
+					   id="firstName"/>
+			</div>
+			<div>
+				<label>Last Name</label>
+				<input type="text"
+					   class="form-control wbdv"
+					   placeholder="Wonderland"
+					   id="lastName"/>
+			</div>
+			<div>
+				<label>Phone Number</label>
+				<input type="text"
+					   class="form-control wbdv"
+					   placeholder="+1234567890"
+					   id="phoneNumber"/>
+			</div>
+			<div>
+				<label>Email</label>
+				<input type="text"
+					   class="form-control wbdv"
+					   placeholder="alice@wonderland.com"
+					   id="email"/>
+			</div>
+			<div>
+				<label>Role</label>
+				<select type="text"
+						class="form-control wbdv"
+						id="role">
+					<option value="FACULTY">
+						Faculty
+					</option>
+					<option value="STUDENT">
+						Student
+					</option>
+					<option value="ADMIN">
+						Admin
+					</option>
+				</select>
+			</div>
+			<div>
+				<label>Date of Birth</label>
+				<input type="date"
+					   class="form-control wbdv"
+					   id="dateofbirth">
+			</div>
+			<div>
+				<button class="btn btn-primary"
+						id="updateBtn">
+					Update
+				</button>
+				<!--<a href="../../index.html">-->
+					<button class="btn btn-warning"
+							id="logoutBtn">
+						Logout
+					</button>
+			<!--</a>-->
+			</div>
+		</div>
+
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+		rel="stylesheet">
+		<link href="../../css/styles.css"
+		rel="stylesheet"/>
+		<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+		<script src="../../services/user.service.client.js"></script>
+		<script src="profile.controller.client.js"></script>
+	</body>
+
+</html>
