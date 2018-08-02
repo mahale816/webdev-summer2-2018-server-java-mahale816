@@ -28,52 +28,6 @@ public class WidgetService {
 	@Autowired
 	TopicRepository topicRepository;
 	
-	@GetMapping("/api/widget")
-	public List<Widget> findAllWidgets(){
-		
-		return (List<Widget>) widgetRepository.findAll();
-		
-	}
-	
-	@PostMapping("/api/widget/save/{topicId}")
-	public List<Widget> saveAllWidgets(@RequestBody List<Widget> widgets, @PathVariable("topicId") int topicId) {
-		Optional<Topic> topicData = topicRepository.findById(topicId);
-		List<Widget> response = new ArrayList<Widget>();
-		if (topicData.isPresent()) {
-			List<Widget> widList = topicData.get().getWidgets();
-			widgetRepository.deleteAll(widList);
-			for (Widget w : widgets) {
-				w.setTopic(topicData.get());
-				response.add(widgetRepository.save(w));
-			}
-			return response;
-		} 
-		else 
-		{
-			return new ArrayList<Widget>();
-		}
-	}
-	
-	@GetMapping("/api/widget/{widgetId}")
-	public Widget findWidgetById(@PathVariable("widgetId") int widgetId) {
-		Optional<Widget> data = widgetRepository.findById(widgetId);
-		if(data.isPresent()) {
-			return data.get();
-		}
-		return null;
-	}
-	
-	@GetMapping("/api/topic/{topicId}/widget")
-	public List<Widget> findAllWidgetsForTopic(
-			@PathVariable("topicId") int topicId) {
-		Optional<Topic> data = topicRepository.findById(topicId);
-		if(data.isPresent()) {
-			Topic top = data.get();
-			return widgetRepository.findAllWidgetsByTopicSorted(top);
-		}
-		return null;		
-	}
-	
 	@PostMapping("/api/topic/{topicId}/widget")
 	public Widget createWidget(
 			@PathVariable("topicId") int topicId,
@@ -95,11 +49,51 @@ public class WidgetService {
 			@RequestBody List<Widget> newWidgets) {
 		widgetRepository.deleteWidgetsByTopicId(topicId);
 		List<Widget> output = new ArrayList<Widget>();
-	for(Widget w : newWidgets) {
-		output.add(createWidget(topicId,w));
+	for(Widget wid : newWidgets) {
+		output.add(createWidget(topicId,wid));
 	}
 		return output;
 	}
+	
+	@GetMapping("/api/topic/{topicId}/widget")
+	public List<Widget> findAllWidgetsForTopic(
+			@PathVariable("topicId") int topicId) {
+		Optional<Topic> data = topicRepository.findById(topicId);
+		if(data.isPresent()) {
+			Topic top = data.get();
+			return widgetRepository.findAllWidgetsByTopicSorted(top);
+		}
+		return null;		
+	}
+	
+	@PostMapping("/api/widget/save/{topicId}")
+	public List<Widget> saveAllWidgets(@RequestBody List<Widget> widgets, @PathVariable("topicId") int topicId) {
+		Optional<Topic> topicData = topicRepository.findById(topicId);
+		List<Widget> response = new ArrayList<Widget>();
+		if (topicData.isPresent()) {
+			List<Widget> widList = topicData.get().getWidgets();
+			widgetRepository.deleteAll(widList);
+			for (Widget wid : widgets) {
+				wid.setTopic(topicData.get());
+				response.add(widgetRepository.save(wid));
+			}
+			return response;
+		} 
+		else 
+		{
+			return new ArrayList<Widget>();
+		}
+	}
+	
+	@GetMapping("/api/widget/{widgetId}")
+	public Widget findWidgetById(@PathVariable("widgetId") int widgetId) {
+		Optional<Widget> data = widgetRepository.findById(widgetId);
+		if(data.isPresent()) {
+			return data.get();
+		}
+		return null;
+	}
+	
 	
 	@PutMapping("/api/widget/{widgetId}")
 	public Widget updateWidget(
@@ -125,5 +119,12 @@ public class WidgetService {
 	public void deleteWidget(@PathVariable("widgetId") int widgetId)
 	{	
 		widgetRepository.deleteById(widgetId);
+	}
+	
+	@GetMapping("/api/widget")
+	public List<Widget> findAllWidgets(){
+		
+		return (List<Widget>) widgetRepository.findAll();
+		
 	}
 }
