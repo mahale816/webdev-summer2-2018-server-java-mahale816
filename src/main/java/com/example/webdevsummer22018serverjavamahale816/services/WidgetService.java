@@ -56,12 +56,11 @@ public class WidgetService {
 	}
 	
 	@GetMapping("/api/topic/{topicId}/widget")
-	public List<Widget> findAllWidgetsForTopic(
-			@PathVariable("topicId") int topicId) {
+	public List<Widget> findAllWidgetsForTopic(@PathVariable("topicId") int topicId) {
 		Optional<Topic> data = topicRepository.findById(topicId);
 		if(data.isPresent()) {
-			Topic top = data.get();
-			return widgetRepository.findAllWidgetsByTopicSorted(top);
+			Topic topic = data.get();
+			return widgetRepository.findAllWidgetsByTopicSorted(topic);
 		}
 		return null;		
 	}

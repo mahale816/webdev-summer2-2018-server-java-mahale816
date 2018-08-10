@@ -16,7 +16,7 @@ public interface WidgetRepository extends CrudRepository<Widget, Integer>{
 	
 	@Transactional
 	
-	@Query("SELECT w from Widget w WHERE w.topic=:topic ORDER BY w.id")
+	@Query("SELECT w from Widget w WHERE w.topic =:topic ORDER BY w.id")
 	List<Widget> findAllWidgetsByTopicSorted(@Param("topic") Topic topic);
 	
 	@Modifying
