@@ -6,6 +6,7 @@ function UserServiceClient() {
     this.logoutUser = logoutUser;
     this.updateUser = updateUser;
     this.findUserById = findUserById;
+    this.findUserByUsername = findUserByUsername;
 
     function findUserById(userId) {
         return fetch('/api/user/' + userId)
@@ -24,6 +25,13 @@ function UserServiceClient() {
             }
         });
 
+    }
+
+    function findUserByUsername(username) {
+        return fetch("/api/"+username)
+            .then(function (response) {
+                return response.json();
+            })
     }
 
     function deleteUser(id) {

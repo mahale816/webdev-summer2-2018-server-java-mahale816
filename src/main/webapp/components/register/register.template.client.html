@@ -1,59 +1,64 @@
 <html>
-    <head>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-              rel="stylesheet">
-        <link href="../../css/styles.css"
-              rel="stylesheet"/>
-        <title>Registration Page</title>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <h1>Sign Up</h1>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="../../css/styles.css"
+          rel="stylesheet"/>
+    <title>Registration Page</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="navbar-brand">Register</div>
+    <div>
+        <ul class="navbar-nav navbar-text">
+            <a class="nav-item" href="../../index.html">Home</a> |
+            <a class="nav-item" href="../login/login.template.client.html">Login</a> |
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div>
+        <label for="username">
+            Username
+        </label>
+        <input type="text"
+               class="form-control wbdv"
+               placeholder="alice"
+               id="username"/>
+    </div>
 
-            <div>
-                <label for="username">
-                    Username
-                </label>
-                <input type="text"
-                       class="form-control wbdv"
-                       placeholder="alice"
-                       id="username"/>
-            </div>
+    <div>
+        <label for="password">
+            Password
+        </label>
+        <input type="password"
+               class="form-control wbdv"
+               placeholder="1234qwerasdf"
+               id="password"/>
+    </div>
 
-            <div>
-                <label for="password">
-                    Password
-                </label>
-                <input type="password"
-                       class="form-control wbdv"
-                       placeholder="1234qwerasdf"
-                       id="password"/>
-            </div>
+    <div>
+        <label for="password2">
+            Validate Password
+        </label>
+        <input type="password"
+               class="form-control wbdv"
+               placeholder="1234qwerasdf"
+               id="password2"/>
+    </div>
+    <button class="btn btn-success form-control"
+            id="registerBtn">
+        Register
+    </button>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 
-            <div>
-                <label for="password2">
-                    Validate Password
-                </label>
-                <input type="password"
-                       class="form-control wbdv"
-                       placeholder="1234qwerasdf"
-                       id="password2"/>
-            </div>
-            <button class="btn btn-success"
-                    id="registerBtn">
-                Register
-            </button>
-            <a href="../login/login.template.client.html">
-                Sign In
-            </a>
-        </div>
+<script src="../../services/user.service.client.js"></script>
+<script src="register.controller.client.js"></script>
 
-        <script
-                src="https://code.jquery.com/jquery-3.3.1.min.js"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
 
-        <script src="register.controller.client.js"></script>
-
-    </body>
+</body>
 </html>

@@ -23,7 +23,15 @@
       headers: {
         'content-type': 'application/json'
       }
-    }).then(navigateToProfile);
+    }).then(function (response) {
+        if (response.status === 409){
+          alert('invalid credentials')
+        }
+        else {
+          alert('login successful');
+          navigateToProfile()
+        }
+    });
   }
 
   function navigateToProfile() {

@@ -7,9 +7,16 @@
 
     </head>
     <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-brand">Login</div>
+        <div>
+            <ul class="navbar-nav navbar-text">
+                <a class="nav-item" href="../../index.html">Home</a> |
+                <a class="nav-item" href="../register/register.template.client.html">Register</a> |
+            </ul>
+        </div>
+    </nav>
         <div class="container-fluid">
-            <h1>Sign In</h1>
-
             <div>
                 <label for="username">
                     Username
@@ -29,14 +36,10 @@
                        placeholder="1234qwerasdf"
                        id="password"/>
             </div>
-            <button class="btn btn-primary"
+            <button class="btn btn-primary form-control"
                     id="loginBtn">
                 Login
             </button>
-            <a href="../register/register.template.client.html">
-                Sign Up
-            </a>
-
         </div>
 
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
