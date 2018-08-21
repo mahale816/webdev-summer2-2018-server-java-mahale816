@@ -16,22 +16,27 @@
       "username": $username.val(),
       "password": $password.val()
     };
-    fetch('/login', {
-      method: 'post',
-      body: JSON.stringify(user),
-      'credentials': 'include',
-      headers: {
-        'content-type': 'application/json'
-      }
-    }).then(function (response) {
-        if (response.status === 409){
-          alert('invalid credentials')
-        }
-        else {
-          alert('login successful');
-          navigateToProfile()
-        }
-    });
+    if (user.username === "" || user.password === ""){
+    	alert('All fields are mandatory');
+    }
+    else{
+    	fetch('/login', {
+    	      method: 'post',
+    	      body: JSON.stringify(user),
+    	      'credentials': 'include',
+    	      headers: {
+    	        'content-type': 'application/json'
+    	      }
+    	    }).then(function (response) {
+    	        if (response.status === 409){
+    	          alert('invalid credentials')
+    	        }
+    	        else {
+    	          alert('login successful');
+    	          navigateToProfile()
+    	        }
+    	    });	
+    }
   }
 
   function navigateToProfile() {

@@ -26,6 +26,10 @@
 
     function checkUser() {
             var usernameStr = usernameFld.val();
+            if (usernameStr === "" || usernameStr === null){
+            	alert('All Fields are mandatory');
+            }
+            else {
             userServiceClient
                 .findUserByUsername(usernameStr)
                 .then(function (response){
@@ -45,6 +49,7 @@
                     //     registerHandler();
                     // }
                 });
+            }
     }
 
     function registerHandler() {
